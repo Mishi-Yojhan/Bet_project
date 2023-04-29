@@ -42,5 +42,11 @@ Apuesta: 2000.0
 
     print(
         f"Porcentaje de la banca a apostar: {round(porcentaje_kelly*100, 2)}%")
-    print(f"Apuesta: {round(apuesta_kelly, 2)}")
-    print(f"Ganancia esperada: {round(ganancia, 2)}")
+
+    if porcentaje_kelly > 1:
+        print("No se puede apostar más del 100% de la banca")
+    elif porcentaje_kelly <= 0:
+        print("No se recomienda apostar ya que un porcentaje negativo indica que la apuesta es perdedora")
+    else:
+        print(f"Apuesta: {round(apuesta_kelly, 2)}")
+        print(f"Ganancia esperada: {round(ganancia, 2)}")
