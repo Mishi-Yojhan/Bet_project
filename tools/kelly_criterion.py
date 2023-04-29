@@ -17,7 +17,6 @@ def kelly_criterion(c, p, b):
     return porcentaje, apuesta, ganancia_esperada
 
 
-
 # Ejecución principal
 if __name__ == "__main__":
 
@@ -38,8 +37,10 @@ Apuesta: 2000.0
     probabilidad = Decimal(input("Probabilidad: "))
     bank = Decimal(input("Bank: "))
 
-    porcentaje_kelly, apuesta_kelly, ganancia = kelly_criterion(cuota, probabilidad, bank)
+    porcentaje_kelly, apuesta_kelly, ganancia = kelly_criterion(
+        cuota, probabilidad, bank)
 
-    print(f"Porcentaje de la banca a apostar: {round(porcentaje_kelly*100, 2)}%")
+    print(
+        f"Porcentaje de la banca a apostar: {round(porcentaje_kelly*100, 2)}%")
     print(f"Apuesta: {round(apuesta_kelly, 2)}")
     print(f"Ganancia esperada: {round(ganancia, 2)}")

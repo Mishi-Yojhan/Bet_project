@@ -10,24 +10,24 @@ Estos son los primarios, pero hay más países en la página web
 
 list_season = ["2022/2023", "2021/2022", "2020/2021", "2019/2020", "2018/2019", "2017/2018", "2016/2017", "2015/2016",
                "2014/2015", "2013/2014", "2012/2013", "2011/2012", "2010/2011", "2009/2010", "2008/2009", "2007/2008",
-                "2006/2007", "2005/2006"]
+               "2006/2007", "2005/2006"]
 
 
-list_countries =  ["England", "Scotland", "Germany", "Spain", "Italy", "France", "Netherlands", "Belgium", "Portugal",
-                    "Turkey", "Greece"]
+list_countries = ["England", "Scotland", "Germany", "Spain", "Italy", "France", "Netherlands", "Belgium", "Portugal",
+                  "Turkey", "Greece"]
 
-divisions = {"England": {"E0": "Premier League", "E1": "Championship", "E2": "League 1", "E3": "League 2", "EC": "Conference"}, 
-            "Scotland": {"SC0": "Premiership", "SC1": "Championship", "SC2": "League 1", "SC3": "League 2"}, 
-            "Germany": {"D1": "Bundesliga 1", "D2": "Bundesliga 2"},
-            "Spain": {"SP1": "La Liga", "SP2": "La Liga 2"},
-            "Italy": {"I1": "Serie A", "I2": "Serie B"},
-            "France": {"F1": "Ligue 1", "F2": "Ligue 2"},
-            "Netherlands": {"N1": "Eredivisie"},
-            "Belgium": {"B1": "Jupiler League"},
-            "Portugal": {"P1": "Liga I"},
-            "Turkey": {"T1": "Super Lig"},
-            "Greece": {"G1": "Ethniki Katigoria"}
-}
+divisions = {"England": {"E0": "Premier League", "E1": "Championship", "E2": "League 1", "E3": "League 2", "EC": "Conference"},
+             "Scotland": {"SC0": "Premiership", "SC1": "Championship", "SC2": "League 1", "SC3": "League 2"},
+             "Germany": {"D1": "Bundesliga 1", "D2": "Bundesliga 2"},
+             "Spain": {"SP1": "La Liga", "SP2": "La Liga 2"},
+             "Italy": {"I1": "Serie A", "I2": "Serie B"},
+             "France": {"F1": "Ligue 1", "F2": "Ligue 2"},
+             "Netherlands": {"N1": "Eredivisie"},
+             "Belgium": {"B1": "Jupiler League"},
+             "Portugal": {"P1": "Liga I"},
+             "Turkey": {"T1": "Super Lig"},
+             "Greece": {"G1": "Ethniki Katigoria"}
+             }
 
 
 def season_to_string(season):
@@ -61,7 +61,8 @@ def get_data_country_by_season(country, season):
                 with open(f"data/soccer/countries/{country}/{season_format}/{divisions[country][division]}.csv", "wb") as file:
                     file.write(response.content)
             else:
-                print (f"Error al descargar la división {division} de la temporada {season_format} del país {country}")
+                print(
+                    f"Error al descargar la división {division} de la temporada {season_format} del país {country}")
 
         except:
             return f"Error al descargar la división {division} de la temporada {season_format} del país {country}"
@@ -77,6 +78,7 @@ def get_data_country_seasons_csv(country):
 
     for season in list_season:
         get_data_country_by_season(country, season)
+
 
 def get_data_countries_all():
     """Obtiene los datos de todos los países"""
@@ -113,7 +115,7 @@ def get_data_season_csv(season):
 
     except:
         return f"Error al descargar la temporada {season_format}"
-    
+
     if not path.exists("data/soccer/seasons"):
         makedirs("data/soccer/seasons")
 
@@ -127,8 +129,8 @@ def get_data_season_csv(season):
         print(f"Temporada {season_format} descargada correctamente")
 
     # Eliminar el archivo zip
-    remove(f"data/soccer/seasons/{season_format}.zip")    
-        
+    remove(f"data/soccer/seasons/{season_format}.zip")
+
     return f"OK"
 
 

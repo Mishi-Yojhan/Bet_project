@@ -15,9 +15,9 @@ def parse_data(lines):
         #   FTHG=Full Time Home Team Goals
         #   FTAG=Full Time Away Team Goals
 
-
         if line.startswith("Key to"):
-            title = line.strip()[:-1].replace("Key to ", "").replace(" ", "_").lower()
+            title = line.strip()[:-1].replace("Key to ",
+                                              "").replace(" ", "_").lower()
             data[title.strip()] = {}
         elif " = " in line:
             if title == "":
