@@ -1,0 +1,14 @@
+# IDE
+.idea
+.vscode
+
+# Environment
+.venv
+venv
+
+# Archivos de la base de datos de football-data.co.uk
+data
+
+# Archivos de la base de datos de transfermarkt.com
+transfermarkt
+
